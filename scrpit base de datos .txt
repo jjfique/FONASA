@@ -1,0 +1,17 @@
+1
+// tabla paciente 
+CREATE TABLE `fonasa`.`paciente` ( `Id_historia` INT NOT NULL AUTO_INCREMENT , `Nombre` VARCHAR(100) NOT NULL , `FechaNacimiento` DATE NOT NULL , `Peso-estaura` INT NOT NULL , `Fuma` BOOLEAN NULL , `Tiempo_fumando` INT NULL , `Dieta` BOOLEAN NULL , PRIMARY KEY (`Id_historia`)) ENGINE = InnoDB;
+
+// tb tipo consulta 
+CREATE TABLE `fonasa`.`tipoConsulta` ( `Id_TipoConsulta` INT NOT NULL AUTO_INCREMENT , `Nombre` VARCHAR(20) NOT NULL, PRIMARY KEY (`Id_TipoConsulta`)) ENGINE = InnoDB;
+
+// medico 
+CREATE TABLE `fonasa`.`medico` ( `id_medico` INT NOT NULL AUTO_INCREMENT, `Nombre` VARCHAR(100) NOT NULL , `Id_TipoConsulta` INT NOT NULL , PRIMARY KEY (`id_medico`),FOREIGN KEY (Id_TipoConsulta) REFERENCES tipoconsulta(Id_TipoConsulta)) ENGINE = InnoDB;
+
+// tb estado consulta 
+
+CREATE TABLE `fonasa`.`Estadoconsulta` ( `Id_EstadoConsulta` INT NOT NULL AUTO_INCREMENT , `Nombre` VARCHAR(20) NOT NULL, PRIMARY KEY (`Id_EstadoConsulta`)) ENGINE = InnoDB;
+
+//tb consulta 
+CREATE TABLE `fonasa`.`Consulta` ( `id_Consulta` INT NOT NULL AUTO_INCREMENT , `Id_historia` INT NOT NULL,`Id_EstadoConsulta` INT NOT NULL, `Id_TipoConsulta` INT NOT NULL,`id_medico` INT NOT NULL,`fecha` DATE NOT NULL,
+PRIMARY KEY (`id_Consulta`),FOREIGN KEY (Id_historia) REFERENCES paciente(Id_historia),FOREIGN KEY (Id_EstadoConsulta) REFERENCES Estadoconsulta(Id_EstadoConsulta),FOREIGN KEY (Id_TipoConsulta) REFERENCES tipoConsulta(Id_TipoConsulta),FOREIGN KEY (id_medico) REFERENCES medico(id_medico)) ENGINE = InnoDB;
