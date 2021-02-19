@@ -60,38 +60,39 @@
                   <p class="card-text mb-3">
                     Permite registrar pacientes
                   </p>
-                  <input type="text" class="form-control mb-3" placeholder="Nombre" />
-                  <input type="date" class="form-control mb-3" placeholder="Fecha de nacimiento" />
+                  <form action="/Registro_Paciente" method="POST">
+                  <input name="txt_Nombre" type="text" class="form-control mb-3" placeholder="Nombre" />
+                  <input name="date_FechaNacimiento" type="date" class="form-control mb-3" placeholder="Fecha de nacimiento" />
                   <label for="">peso-estatura</label>
-                  <select name="select" class="form-control mb-3">
+                  <select name="list_PesoEstatura" class="form-control mb-3">
                     
-                    <option value="value1">1</option>
-                    <option value="value2">2</option>
-                    <option value="value3">3</option>
-                    <option value="value4">4</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                   </select>
                   
                   <div class="custom-control custom-checkbox custom-control-inline mb-3">
-                    <input type="checkbox" id="customCheckboxInline1" name="customCheckboxInline1" class="custom-control-input"/>
-                    <label class="custom-control-label" for="customCheckboxInline1">
+                    <input type="checkbox" id="check_Fuma" name="customCheckboxInline1" class="custom-control-input"/>
+                    <label class="custom-control-label" for="check_Fuma">
                       Fuma?
                     </label>
                   </div>
-                  <input type="text" class="form-control mb-3" placeholder="Cueantos años lleva fumando? " />
+                  <input name="Txt_TiempoFumando" type="text" class="form-control mb-3" placeholder="Cueantos años lleva fumando? " />
                   <div class="custom-control custom-checkbox custom-control-inline mb-3">
-                    <input type="checkbox" id="checkDieta" name="customCheckboxInline2" class="custom-control-input"/>
-                    <label class="custom-control-label" for="checkDieta" >
+                    <input type="checkbox" id="check_Dieta" name="customCheckboxInline2" class="custom-control-input"/>
+                    <label class="custom-control-label" for="check_Dieta" >
                       Tiene Dieta Definida?
                     </label>
                   </div>
                   <div class="fg-actions d-flex justify-content-between">
                     <div class="recover-pass">
-                      <button id="registrar" class="btn btn-primary">
-                        <a action="" class="text-decoration-none text-white">
+                      <button type="submit" id="btn_registrar" class="btn btn-primary">
+                        <a class="text-decoration-none text-white">
                           Registrar
                         </a>
                       </button>
-                
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -130,7 +131,7 @@
     <script src="app-assets/js/customizer.js" type="text/javascript"></script>
     <!-- END APEX JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    <script src="app/validaciones.js" type="text/javascript"></script>
+    <script src="static/app/validaciones.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
   </body>
   <!-- END : Body-->
