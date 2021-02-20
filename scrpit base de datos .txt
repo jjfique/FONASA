@@ -1,6 +1,6 @@
 1
 // tabla paciente 
-CREATE TABLE `fonasa`.`paciente` ( `Id_historia` INT NOT NULL AUTO_INCREMENT , `Nombre` VARCHAR(100) NOT NULL , `FechaNacimiento` DATE NOT NULL , `Peso-estaura` INT NOT NULL , `Fuma` BOOLEAN NULL , `Tiempo_fumando` INT NULL , `Dieta` BOOLEAN NULL , PRIMARY KEY (`Id_historia`)) ENGINE = InnoDB;
+CREATE TABLE `fonasa`.`paciente` ( `Id_historia` INT NOT NULL AUTO_INCREMENT , `Nombre` VARCHAR(100) NOT NULL , `FechaNacimiento` DATE NOT NULL , `PesoEstaura` INT NOT NULL , `Fuma` BOOLEAN NULL , `Tiempo_fumando` INT NULL , `Dieta` BOOLEAN NULL , PRIMARY KEY (`Id_historia`)) ENGINE = InnoDB;
 
 // tb tipo consulta 
 CREATE TABLE `fonasa`.`tipoConsulta` ( `Id_TipoConsulta` INT NOT NULL AUTO_INCREMENT , `Nombre` VARCHAR(20) NOT NULL, PRIMARY KEY (`Id_TipoConsulta`)) ENGINE = InnoDB;
