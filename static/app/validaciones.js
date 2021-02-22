@@ -20,7 +20,7 @@ function cargarEventListeners() {
 }
 function inicioApp() {
      // deshabilitar boton registrar
-     registrar.disabled = true;
+     registrar.disabled = false;
 }
 function mensaje(e) {
     e.preventDefault();
