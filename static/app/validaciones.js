@@ -13,6 +13,9 @@ function cargarEventListeners() {
      // Dispara cuando se presiona "Agregar Carrito"
      registrar.addEventListener('click', mensaje);
      Nombre.addEventListener('blur',validarFormulario);
+     Fecha.addEventListener('blur',validarFormulario);
+     TiempoFumando.addEventListener('blur',validarFormulario);
+     Fecha.addEventListener('blur',asignarEdad);
 
 }
 function inicioApp() {
@@ -34,17 +37,19 @@ function validarFormulario(e) {
          // e.target.classList.add('border', 'border-red-500');
      }
 
-
-
-     // Validar unicamente el email
-     if(this.type === 'email') {
-          validarEmail(this);
-     }
-
-
-     if(email.value !== '' && asunto.value !== '' && mensaje.value !== '' ) {
+    /*  if(email.value !== '' && asunto.value !== '' && mensaje.value !== ''&& email.value !== '' && asunto.value !== '' && mensaje.value !== '' ) {
         btnEnviar.disabled = false;
-        btnEnviar.classList.remove('opacity-50');
-        btnEnviar.classList.remove('cursor-not-allowed');
-     }
+     } */
+}
+
+function asignarEdad(e) {
+    let edad = 0
+    Nacimiento = Fecha.valueAsNumber;
+    hoy = Date.now();
+
+    edad = hoy - Nacimiento
+    edad = (edad/31556926)
+
+    alert("se asigno una edad "+edad.toString())
+    
 }
