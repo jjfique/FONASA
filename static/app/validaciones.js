@@ -44,11 +44,22 @@ function validarFormulario(e) {
 
 function asignarEdad(e) {
     let edad = 0
-    Nacimiento = Fecha.valueAsNumber;
-    hoy = Date.now();
-
-    edad = hoy - Nacimiento
-    edad = (edad/31556926)
+    let Nacimiento = new Date(Fecha.value);
+    let hoy = new Date();
+    mesNacimiento = Nacimiento.getMonth();
+    mesHoy = hoy.getMonth() ;
+    hoy = hoy.getFullYear() ;
+    Nacimiento = Nacimiento.getFullYear();
+    edad = (hoy -Nacimiento)
+    
+    let  m = mesHoy - mesNacimiento;
+    if (m < 0 || (m === 0 && hoy < Nacimiento)) {
+     edad--;
+     }
+    if (edad < 0) {    
+     alert("La fecha de nacimiento no puede ser superior a hoy")
+     Nacimiento = "";
+    }
 
     alert("se asigno una edad "+edad.toString())
     
