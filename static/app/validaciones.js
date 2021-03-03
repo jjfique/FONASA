@@ -5,6 +5,8 @@ const Peso = document.querySelector('#list_PesoEstatura');
 const Fuma = document.querySelector('#check_Fuma');
 const TiempoFumando = document.querySelector('#Txt_TiempoFumando');
 const Dieta = document.querySelector('#check_Dieta');
+let edad = 0;
+let ClasificacionEdad ='';
 // Listeners
 cargarEventListeners();
 
@@ -43,24 +45,39 @@ function validarFormulario(e) {
 }
 
 function asignarEdad(e) {
-    let edad = 0
-    let Nacimiento = new Date(Fecha.value);
+    let Nacimiento = new Date(Fecha.valueAsDate);
     let hoy = new Date();
     mesNacimiento = Nacimiento.getMonth();
     mesHoy = hoy.getMonth() ;
-    hoy = hoy.getFullYear() ;
+    anio = hoy.getFullYear() ;
+    dia = hoy.getDate();
+    diaSeleccionado=Nacimiento.getDate();
     Nacimiento = Nacimiento.getFullYear();
-    edad = (hoy -Nacimiento)
+    edad = (anio -Nacimiento)
     
     let  m = mesHoy - mesNacimiento;
     if (m < 0 || (m === 0 && hoy < Nacimiento)) {
      edad--;
      }
-    if (edad < 0) {    
-     alert("La fecha de nacimiento no puede ser superior a hoy")
-     Nacimiento = "";
+    if (edad < 0 || dia < diaSeleccionado && anio <= Nacimiento) {    
+     alert("La fecha de nacimiento no puede ser mayor a hoy")
     }
-
-    alert("se asigno una edad "+edad.toString())
     
+    ClasificarEdadPaciente(edad);
 }
+
+function ClasificarEdadPaciente(edad) {
+     
+     if (edad<=15) {
+          ClasificacionEdad = 'Niño';
+       }
+     if (edad>15 && edad<=40) {
+          ClasificacionEdad = 'Joven';
+       }
+     if (edad>40) {
+          ClasificacionEdad = 'Anciano';
+       }
+
+       console.log(ClasificacionEdad)
+
+ }
