@@ -1,9 +1,12 @@
 const registrar = document.querySelector('#btn_registrar');
 const Nombre = document.querySelector('#txt_Nombre');
 const Fecha = document.querySelector('#date_FechaNacimiento');
+const pesoLabel = document.querySelector('#lb_peso-estatura');
 const Peso = document.querySelector('#list_PesoEstatura');
+const DivFuma = document.querySelector('#Div_Fuma');
 const Fuma = document.querySelector('#check_Fuma');
 const TiempoFumando = document.querySelector('#Txt_TiempoFumando');
+const DivDieta = document.querySelector('#Div_Dieta');
 const Dieta = document.querySelector('#check_Dieta');
 let edad = 0;
 let ClasificacionEdad ='';
@@ -22,7 +25,14 @@ function cargarEventListeners() {
 }
 function inicioApp() {
      // deshabilitar boton registrar
-     registrar.disabled = false;
+     registrar.disabled = true;
+     pesoLabel.hidden=true
+     Peso.hidden=true
+     DivFuma.hidden=true
+     TiempoFumando.hidden=true
+     Div_Dieta.hidden=true
+
+     
 }
 function mensaje(e) {
     e.preventDefault();
@@ -63,7 +73,7 @@ function asignarEdad(e) {
      alert("La fecha de nacimiento no puede ser mayor a hoy")
     }
     
-    ClasificarEdadPaciente(edad);
+    ClasificacionEdad = ClasificarEdadPaciente(edad);
 }
 
 function ClasificarEdadPaciente(edad) {
