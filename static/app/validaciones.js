@@ -21,6 +21,7 @@ function cargarEventListeners() {
      Fecha.addEventListener('blur',validarFormulario);
      TiempoFumando.addEventListener('blur',validarFormulario);
      Fecha.addEventListener('blur',asignarEdad);
+     Fuma.addEventListener('click', mensaje);
 
 }
 function inicioApp() {
@@ -73,7 +74,7 @@ function asignarEdad(e) {
      alert("La fecha de nacimiento no puede ser mayor a hoy")
     }
     
-    ClasificacionEdad = ClasificarEdadPaciente(edad);
+     ClasificarEdadPaciente(edad);
 }
 
 function ClasificarEdadPaciente(edad) {
@@ -88,6 +89,26 @@ function ClasificarEdadPaciente(edad) {
           ClasificacionEdad = 'Anciano';
        }
 
-       console.log(ClasificacionEdad)
+       switch (ClasificacionEdad) {
+          case 'Niño':
+               pesoLabel.hidden=false
+               Peso.hidden=false
+            break;
+          case 'Joven':
+               pesoLabel.hidden=true
+               Peso.hidden=true
+               DivFuma.hidden=false
+               if (Fuma.checked) {
+                TiempoFumando.hidden=false
+               }
+               
+            break;
+          case 'Anciano':
+               alert("Anciano")
+            break;
+          default:
+               alert("Ninguno")
+            break;
+        }  
 
  }
